@@ -1,0 +1,20 @@
+---
+export interface Props {
+  post: any;
+}
+
+const { post } = Astro.props;
+const url = 'posts/'+post.slug;
+---
+<div class="post-preview">
+    <a href={url}>
+        <h2 class="post-title">{post.title}</h2>
+        <h3 class="post-subtitle">{post.content}</h3>
+    </a>
+    <p class="post-meta">
+        Posted on
+        {new Date(post.published_at)}
+    </p>
+</div>
+<!-- Divider-->
+<hr class="my-4" />   

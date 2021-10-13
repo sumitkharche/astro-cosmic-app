@@ -1,0 +1,57 @@
+---
+// Component Imports
+import BaseHead from '../components/BaseHead.astro';
+import BlogPostPreview from '../components/BlogPostPreview.astro';
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import { apiURL,bucketSlug,readKey} from '../lib/config';
+
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = 'Astro Cosmic Blog';
+
+const response = await fetch(`https://api.cosmicjs.com/v2/buckets/${bucketSlug}/objects?pretty=true&query=%7B%22type%22%3A%22posts%22%7D&read_key=${readKey}`);
+const objs = await response.json();
+const allPosts = objs.objects;
+
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<html lang="en">
+<head>
+    <BaseHead />
+</head>
+<body>
+        <!-- Navigation-->
+        <Navigation />
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8">
+                        <div class="site-heading">
+                            <h1>Astro Cosmic Blog</h1>
+                            <span class="subheading">The perfect starter for your perfect blog.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {allPosts.map(p => <BlogPostPreview post={p} />)}
+                    <!-- Pager-->
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <Footer />
+    </body>
+</html>
