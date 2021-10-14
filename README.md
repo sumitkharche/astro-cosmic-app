@@ -2,7 +2,9 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7b6a63d9-3c87-4391-bbe2-4222f66b5cfa/deploy-status)](https://app.netlify.com/sites/astro-cosmic-blog/deploys)
 
+![astro-cosmic-app](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5cvh3hizxsbg2xuxisnm.PNG "The home page of the blog")
 
+![astro-cosmic-app](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ikwegzc0ahes0wcoh8c3.PNG "The post detail page of the blog")
 
 > This repo contains an example blog application that is built with [Astro](https://astro.build/), [Cosmic](https://www.cosmicjs.com) and [Start Bootstrap](https://startbootstrap.com/theme/clean-blog) clean-blog template.
 
