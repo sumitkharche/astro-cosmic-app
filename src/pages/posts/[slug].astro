@@ -3,6 +3,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Navigation from '../../components/Navigation.astro';
 import { apiURL,bucketSlug,readKey} from '../../lib/config';
+import { Markdown } from 'astro/components';
 
 
 export async function getStaticPaths() {
@@ -52,7 +53,7 @@ const url = `${post.metadata.image.url}`;
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        {post.metadata.content}                        
+                        <Markdown content={post.metadata.content} />                        
                     </div>
                 </div>
             </div>
